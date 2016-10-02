@@ -1,0 +1,10 @@
+.wrap {
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 479px) {
+  .social-sprite {
+    background-image: url('../img/social-sbdbe4e5f0e.png');
+    background-repeat: no-repeat;
+  }
+}

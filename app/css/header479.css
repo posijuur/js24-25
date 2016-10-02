@@ -1,0 +1,96 @@
+@media screen and (max-width: 767px) {
+  .social-sprite {
+    background-image: url('../img/social-sbdbe4e5f0e.png');
+    background-repeat: no-repeat;
+  }
+
+  .header {
+    height: 540px;
+    background: url(../img/header320.png) no-repeat;
+    background-size: cover;
+  }
+  .header_wrap {
+    margin: 0 auto;
+    padding: 20px 0;
+    width: 320px;
+    text-align: center;
+  }
+  .header_wrap a {
+    color: white;
+  }
+
+  .block-registrate {
+    width: 200px;
+    margin: 0 auto 117px;
+    overflow: hidden;
+  }
+  .block-registrate_item {
+    float: left;
+    display: block;
+    width: 90px;
+    line-height: 36px;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: -0.1px;
+  }
+  .block-registrate_sign {
+    width: 86px;
+    line-height: 32px;
+    border: 2px solid white;
+    border-radius: 18px;
+    font-family: 'Montserrat';
+    word-spacing: 1px;
+  }
+  .block-registrate_log {
+    width: 86px;
+  }
+
+  .name-company {
+    display: block;
+    clear: both;
+    font-family: 'Montserrat';
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .partner {
+    margin-top: 30px;
+  }
+  .partner_title {
+    margin-bottom: 10.5px;
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 36px;
+  }
+  .partner_paragraf {
+    margin: auto;
+    margin-bottom: 20px;
+    width: 217px;
+    height: 36px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: -0.1px;
+    line-height: 20px;
+  }
+
+  .btn-partner {
+    margin: 0 auto;
+    display: block;
+    width: 280px;
+    line-height: 40px;
+    background-color: #ff4e50;
+    border-radius: 20px;
+    color: white;
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-weight: 700;
+  }
+}

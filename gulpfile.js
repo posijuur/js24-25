@@ -96,4 +96,4 @@ gulp.task('watch', function() {
 
 //default   \добавить 'connect', для работы сервера
 // gulp.task('default', ['html', 'css', 'babel', 'rev', 'js', 'img', 'watch']);
-gulp.task('default', ['html', 'js', 'css', 'watch']);
+gulp.task('default', ['html', 'js', 'css', 'img', 'watch']);

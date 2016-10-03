@@ -113,9 +113,9 @@
 
 	var defaults = {
 		countItem      : 5,
-		widthItem      : 100,
-		heightItem     : 300,
-		itemMarginRigth: 25, 
+		// widthItem      : 100,
+		// heightItem     : 300,
+		// itemMarginRigth: 25, 
 	};
 
 	var methods = {
@@ -124,15 +124,69 @@
 			 var $img = $('.carousel-element img');
 			 var options = $.extend({}, defaults, params);
 			 var widthCarousel = null;
-			 var widthItem = options.widthItem + options.itemMarginRigth;
-			 // убрал с формулы -options.itemMarginRigth, так как item  у нас один
-			 widthCarousel = (options.countItem * (options.widthItem + options.itemMarginRigth)) + 'px';
-			 $img.css('maxWidth', options.widthItem + 'px');
-			 $item.css({
-			 	width: options.widthItem + 'px',
-			 	height: options.heightItem + 'px',
-			 	marginRight: options.itemMarginRigth + 'px',
-			 });
+			 var itemWidth = $('.carousel-element').width();
+			 var itemHeight = $('.carousel-element').height();
+			 var itemMarginRigth = 0;
+			 $(window).resize(function(){
+				var widthWindow = $(this).width();
+
+				if (widthWindow <= 767) {
+					if (!(widthWindow <= 767 && windowWidth <= 767)) {
+						windowWidth = 767;
+						itemWidth = $('.carousel-element').width();
+						console.log(itemWidth);
+						var widthItem = itemWidth + itemMarginRigth;
+			widthCarousel = (options.countItem * (itemWidth + itemMarginRigth)) + 'px';
+			 $img.css('maxWidth', itemWidth + 'px');
+			$('.carousel-hider').css('width', widthCarousel);
+			var elementsList = $('.carousel-list');
+			var currentLeftValue = 0;
+			currentLeftValue = currentLeftValue - widthItem;
+			elementsList.animate({left: currentLeftValue + 'px'}, 0)
+					}
+				}
+
+				if (widthWindow >= 768 && widthWindow <=959) {
+					if (!(widthWindow >= 768 && widthWindow <=959 && windowWidth >= 768 && windowWidth <=959 )) {
+						windowWidth = 768;
+						itemWidth = $('.carousel-element').width();
+						console.log(itemWidth);
+						var widthItem = itemWidth + itemMarginRigth;
+			widthCarousel = (options.countItem * (itemWidth + itemMarginRigth)) + 'px';
+			 $img.css('maxWidth', itemWidth + 'px');
+			$('.carousel-hider').css('width', widthCarousel);
+			var elementsList = $('.carousel-list');
+			var currentLeftValue = 0;
+			currentLeftValue = currentLeftValue - widthItem;
+			elementsList.animate({left: currentLeftValue + 'px'}, 0)
+					}
+				}
+
+				if (widthWindow >= 960) {
+					if (!(widthWindow >= 960 && windowWidth >= 960)) {
+						windowWidth = 960;
+						itemWidth = $('.carousel-element').width();
+						console.log(itemWidth);
+						var widthItem = itemWidth + itemMarginRigth;
+			widthCarousel = (options.countItem * (itemWidth + itemMarginRigth)) + 'px';
+			 $img.css('maxWidth', itemWidth + 'px');
+			$('.carousel-hider').css('width', widthCarousel);
+			var elementsList = $('.carousel-list');
+			var currentLeftValue = 0;
+			currentLeftValue = currentLeftValue - widthItem;
+			elementsList.animate({left: currentLeftValue + 'px'}, 0)
+					}
+				}
+			});
+			 var widthItem = itemWidth + itemMarginRigth;
+			 // убрал с формулы -itemMarginRigth, так как item  у нас один
+			 widthCarousel = (options.countItem * (itemWidth + itemMarginRigth)) + 'px';
+			 $img.css('maxWidth', itemWidth + 'px');
+			 // $item.css({
+			 // 	width: itemWidth + 'px',
+			 // 	height: options.heightItem + 'px',
+			 // 	marginRight: itemMarginRigth + 'px',
+			 // });
 			 this.css('width', widthCarousel);
 
 			 //Начало, Эта часть выполняется по дефолту сразу и не от чего не невисит
@@ -141,7 +195,7 @@
 			var elementsList = $('.carousel-list');
 			var ItemElement = $('.carousel-element');
 
-			var pixelsOffset = options.widthItem + options.itemMarginRigth;
+			var pixelsOffset = itemWidth + itemMarginRigth;
 			var currentLeftValue = 0;
 			// определяем количество слайдеров на странице
 			var elementsListLength = elementsList.length;
@@ -289,9 +343,9 @@
 
 	show : function() {
 		
-			// var goSlider_1 = setInterval(startShowFirstSlider, 3500);
-			// var goSlider_2 = setInterval(startShowSecondSlider, 3500);
-			// var goSlider_3 = setInterval(startShowThirdSlider, 3500);
+			var goSlider_1 = setInterval(startShowFirstSlider, 3500);
+			var goSlider_2 = setInterval(startShowSecondSlider, 3500);
+			var goSlider_3 = setInterval(startShowThirdSlider, 3500);
 
 			function startShowFirstSlider() {
 				$('.carousel-hider:nth-child(1)').find('.carousel-arrow-right').trigger('click');
@@ -371,39 +425,57 @@
 var windowWidth = $(window).width();
 // отвечает за первое появление слаядера на странице
 if (windowWidth <= 767) {
-	$('.carousel-hider').carousel({countItem : 1, widthItem: 300, heightItem: 240, itemMarginRigth: 0});
+	
+	$('.carousel-hider').carousel({countItem : 1,});
 	$('.carousel-hider').carousel('show');
 }
 
 if (windowWidth >= 768 && windowWidth <=959) {
-	$('.carousel-hider').carousel({countItem : 1, widthItem: 236, heightItem: 400, itemMarginRigth: 0});
+	$('.carousel-hider').carousel({countItem : 1,});
+	$('.carousel-hider').carousel('show');
+}
+
+if (windowWidth >= 960) {
+	$('.carousel-hider').carousel({countItem : 1,});
 	$('.carousel-hider').carousel('show');
 }
 
 // отвечает за resize окна
 $(window).resize(function(){
 	var widthWindow = $(this).width();
+
 	if (widthWindow <= 767) {
 		if (!(widthWindow <= 767 && windowWidth <= 767)) {
 			windowWidth = 767;
 			$('.carousel-hider').carousel({countItem : 1, widthItem: 300, heightItem: 240, itemMarginRigth: 0});
 		}
-
-	
-	
-}
-
-if (widthWindow >= 768 && widthWindow <=959) {
-
-	if (!(widthWindow >= 768 && widthWindow <=959 && windowWidth >= 768 && windowWidth <=959 )) {
-		windowWidth = 768;
-		$('.carousel-hider').carousel({countItem : 1, widthItem: 236, heightItem: 400, itemMarginRigth: 0});
 	}
-		
-}
+
+	if (widthWindow >= 768 && widthWindow <=959) {
+		if (!(widthWindow >= 768 && widthWindow <=959 && windowWidth >= 768 && windowWidth <=959 )) {
+			windowWidth = 768;
+			$('.carousel-hider').carousel({countItem : 1, widthItem: 236, heightItem: 400, itemMarginRigth: 0});
+		}
+	}
+
+	if (widthWindow >= 960) {
+		if (!(widthWindow >= 960 && windowWidth >= 960)) {
+			windowWidth = 960;
+			$('.carousel-hider').carousel({countItem : 1, widthItem: 300, heightItem: 400, itemMarginRigth: 0});
+		}
+	}
 });
 
 })(jQuery);
 
 
 //Можно настраивать ширины li, margin-right li и число отображаемых li
+
+			// var widthItem = itemWidth + itemMarginRigth;
+			// widthCarousel = (options.countItem * (itemWidth + itemMarginRigth)) + 'px';
+			//  $img.css('maxWidth', itemWidth + 'px');
+			// $('.carousel-hider').css('width', widthCarousel);
+			// var elementsList = $('.carousel-list');
+			// var currentLeftValue = 0;
+			// currentLeftValue = currentLeftValue - widthItem;
+			// elementsList.animate({left: currentLeftValue + 'px'}, 0)

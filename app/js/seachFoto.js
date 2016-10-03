@@ -1,10 +1,5 @@
 ;(function ($) {
 	$.support.cors = true;
- 
- $('.js-katalog-image').isotope({
- 	itemSelector: '.js-katalog-image_item',
- 	layoutMode: 'fitRows'
- });
 
 	$.getJSON("http://api.pixplorer.co.uk/image?&amount=7&size=large",
 		function(data){
@@ -13,6 +8,14 @@
 			var _tpl = _.template($tpl_src);
 			$placeHolder.html(_tpl(data));
 		});
+
+	setTimeout(function () {
+		$('.js-katalog-image').masonry({
+		  itemSelector: '.js-katalog-image_item',
+		  columnWidth: 2
+		});
+	}, 1300);
+	
 
 	$('.search-partner_submit').on('click', function(event) {
 		event.preventDefault();
@@ -31,6 +34,13 @@
 			var _tpl = _.template($tpl_src);
 			$placeHolder.html(_tpl(data));
 		});
+
+		setTimeout(function () {
+			$('.js-katalog-image').masonry({
+			  itemSelector: '.js-katalog-image_item',
+			  columnWidth: 2
+			});
+		}, 1300);
 
 		removeValue = $('.search-partner_input').val('');
 	});

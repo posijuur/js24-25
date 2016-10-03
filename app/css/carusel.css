@@ -23,7 +23,7 @@
 .carousel-element {
     display: block;
     width: 300px;
-    margin-right: 25px;
+    /* margin-right: 25px; */
     float: left;
     overflow: hidden;
 }

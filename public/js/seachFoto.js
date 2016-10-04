@@ -17,7 +17,7 @@
 	}, 1300);
 	
 
-	$(".search-partner_submit").on("click", function(event) {
+	$(".search-partner_submit").click(function(event) {
 		event.preventDefault();
 		var target = event.target;
 		var valueInput = $(".search-partner_input").val();

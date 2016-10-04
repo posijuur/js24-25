@@ -1,9 +1,4 @@
 @media (min-width: 960px) {
-  .social-sprite {
-    background-image: url('../img/social-sbdbe4e5f0e.png');
-    background-repeat: no-repeat;
-  }
-
   .footer {
     border-top: 4px solid #ff4e50;
     text-align: center;

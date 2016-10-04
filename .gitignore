@@ -1,4 +1,6 @@
+app/sass/
 sass/
+app/.sass-cache/
 .sass-cache/
 img/social/
 config.rb

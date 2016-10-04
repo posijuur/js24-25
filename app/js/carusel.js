@@ -134,15 +134,14 @@
 					if (!(widthWindow <= 767 && windowWidth <= 767)) {
 						windowWidth = 767;
 						itemWidth = $('.carousel-element').width();
-						console.log(itemWidth);
 						var widthItem = itemWidth + itemMarginRigth;
-			widthCarousel = (options.countItem * (itemWidth + itemMarginRigth)) + 'px';
-			 $img.css('maxWidth', itemWidth + 'px');
-			$('.carousel-hider').css('width', widthCarousel);
-			var elementsList = $('.carousel-list');
-			var currentLeftValue = 0;
-			currentLeftValue = currentLeftValue - widthItem;
-			elementsList.animate({left: currentLeftValue + 'px'}, 0)
+						widthCarousel = (options.countItem * (itemWidth + itemMarginRigth)) + 'px';
+						 $img.css('maxWidth', itemWidth + 'px');
+						$('.carousel-hider').css('width', widthCarousel);
+						var elementsList = $('.carousel-list');
+						var currentLeftValue = 0;
+						currentLeftValue = currentLeftValue - widthItem;
+						elementsList.animate({left: currentLeftValue + 'px'}, 0)
 					}
 				}
 
@@ -150,15 +149,14 @@
 					if (!(widthWindow >= 768 && widthWindow <=959 && windowWidth >= 768 && windowWidth <=959 )) {
 						windowWidth = 768;
 						itemWidth = $('.carousel-element').width();
-						console.log(itemWidth);
 						var widthItem = itemWidth + itemMarginRigth;
-			widthCarousel = (options.countItem * (itemWidth + itemMarginRigth)) + 'px';
-			 $img.css('maxWidth', itemWidth + 'px');
-			$('.carousel-hider').css('width', widthCarousel);
-			var elementsList = $('.carousel-list');
-			var currentLeftValue = 0;
-			currentLeftValue = currentLeftValue - widthItem;
-			elementsList.animate({left: currentLeftValue + 'px'}, 0)
+						widthCarousel = (options.countItem * (itemWidth + itemMarginRigth)) + 'px';
+						 $img.css('maxWidth', itemWidth + 'px');
+						$('.carousel-hider').css('width', widthCarousel);
+						var elementsList = $('.carousel-list');
+						var currentLeftValue = 0;
+						currentLeftValue = currentLeftValue - widthItem;
+						elementsList.animate({left: currentLeftValue + 'px'}, 0)
 					}
 				}
 
@@ -166,15 +164,14 @@
 					if (!(widthWindow >= 960 && windowWidth >= 960)) {
 						windowWidth = 960;
 						itemWidth = $('.carousel-element').width();
-						console.log(itemWidth);
 						var widthItem = itemWidth + itemMarginRigth;
-			widthCarousel = (options.countItem * (itemWidth + itemMarginRigth)) + 'px';
-			 $img.css('maxWidth', itemWidth + 'px');
-			$('.carousel-hider').css('width', widthCarousel);
-			var elementsList = $('.carousel-list');
-			var currentLeftValue = 0;
-			currentLeftValue = currentLeftValue - widthItem;
-			elementsList.animate({left: currentLeftValue + 'px'}, 0)
+						widthCarousel = (options.countItem * (itemWidth + itemMarginRigth)) + 'px';
+						 $img.css('maxWidth', itemWidth + 'px');
+						$('.carousel-hider').css('width', widthCarousel);
+						var elementsList = $('.carousel-list');
+						var currentLeftValue = 0;
+						currentLeftValue = currentLeftValue - widthItem;
+						elementsList.animate({left: currentLeftValue + 'px'}, 0)
 					}
 				}
 			});
@@ -224,118 +221,6 @@
 			 	currentLeftValue -= pixelsOffset;
 			 	$(findItemElements).appendTo(findElementsList); 
 			});
-
-			// Листает слайдер
-
-			// var goSlider_1 = setInterval(startShowFirstSlider, 3500);
-			// var goSlider_2 = setInterval(startShowSecondSlider, 3500);
-			// var goSlider_3 = setInterval(startShowThirdSlider, 3500);
-
-			// function startShowFirstSlider() {
-			// 	$('.carousel-hider:nth-child(1)').find('.carousel-arrow-right').trigger('click');
-			// }
-
-			// function startShowSecondSlider() {
-			// 	$('.carousel-hider:nth-child(2)').find('.carousel-arrow-right').trigger('click');
-			// }
-
-			// function startShowThirdSlider() {
-			// 	$('.carousel-hider:nth-child(3)').find('.carousel-arrow-right').trigger('click');
-			// }
-
-			// // На ховер он находит все елементы внутри Ли, подумать как перейти к перенту
-			// //Выбрать перентом сразу карусель-хайдер
-
-			// var carouselHider = $('.carousel-hider');
-			// for (var i = 0; i < carouselHider.length; i++) {
-			// 	carouselHider[i].addEventListener("mouseover", highlightThis, true);
-			// }
-
-			// function highlightThis(event) {
-			// 	var target = event.target;
-			// 	var valueCount = this.dataset.count;
-			// 	var self = this;
-			// 	if (valueCount == 1) {
-			// 		clearInterval(goSlider_1);
-
-			// 		$(self).one('mouseout', function(event) {
-			// 			event.preventDefault();
-			// 			goSlider_1 = setInterval(startShowFirstSlider, 3500);
-			// 		});
-			// 		return;
-			// 	}
-
-			// 	if (valueCount == 2) {
-			// 		clearInterval(goSlider_2);
-
-			// 		$(self).one('mouseout', function(event) {
-			// 			event.preventDefault();
-			// 			goSlider_2 = setInterval(startShowSecondSlider, 3500);
-			// 		});
-			// 		// $('.carousel-hider:nth-child(2)').mouseout(function(event) {
-			// 		// 	goSlider_2 = setInterval(startShowSecondSlider, 3500);
-			// 		// });
-			// 		return;
-			// 	}
-
-			// 	if (valueCount == 3) {
-			// 		clearInterval(goSlider_3);
-
-			// 		$(self).one('mouseout', function(event) {
-			// 			event.preventDefault();
-			// 			goSlider_3 = setInterval(startShowThirdSlider, 3500);
-			// 		});
-			// 		// $('.carousel-hider:nth-child(3)').mouseout(function(event) {
-			// 		// 	goSlider_3 = setInterval(startShowThirdSlider, 3500);
-			// 		// });
-			// 		return;
-			// 	}
-			// }
-
-			// $('.carousel-hider').hover(function(event) {
-			// 	var target = event.target;
-			// 	var valueCount = this.dataset.count;
-			// 	var self = this;
-			// 	if (valueCount == 1) {
-			// 		clearInterval(goSlider_1);
-
-			// 		$(self).one('mouseout', function(event) {
-			// 			event.preventDefault();
-			// 			goSlider_1 = setInterval(startShowFirstSlider, 3500);
-			// 		});
-			// 		return;
-			// 	}
-
-			// 	if (valueCount == 2) {
-			// 		clearInterval(goSlider_2);
-
-			// 		$(self).one('mouseout', function(event) {
-			// 			event.preventDefault();
-			// 			goSlider_2 = setInterval(startShowSecondSlider, 3500);
-			// 		});
-			// 		// $('.carousel-hider:nth-child(2)').mouseout(function(event) {
-			// 		// 	goSlider_2 = setInterval(startShowSecondSlider, 3500);
-			// 		// });
-			// 		return;
-			// 	}
-
-			// 	if (valueCount == 3) {
-			// 		clearInterval(goSlider_3);
-
-			// 		$(self).one('mouseout', function(event) {
-			// 			event.preventDefault();
-			// 			goSlider_3 = setInterval(startShowThirdSlider, 3500);
-			// 		});
-			// 		// $('.carousel-hider:nth-child(3)').mouseout(function(event) {
-			// 		// 	goSlider_3 = setInterval(startShowThirdSlider, 3500);
-			// 		// });
-			// 		return;
-			// 	}
-			// }, function(event) {
-				
-			// });
-
-
 
 			//Конец!!!
 			return this.css('width', widthCarousel);
@@ -440,42 +325,6 @@ if (windowWidth >= 960) {
 	$('.carousel-hider').carousel('show');
 }
 
-// отвечает за resize окна
-$(window).resize(function(){
-	var widthWindow = $(this).width();
-
-	if (widthWindow <= 767) {
-		if (!(widthWindow <= 767 && windowWidth <= 767)) {
-			windowWidth = 767;
-			$('.carousel-hider').carousel({countItem : 1, widthItem: 300, heightItem: 240, itemMarginRigth: 0});
-		}
-	}
-
-	if (widthWindow >= 768 && widthWindow <=959) {
-		if (!(widthWindow >= 768 && widthWindow <=959 && windowWidth >= 768 && windowWidth <=959 )) {
-			windowWidth = 768;
-			$('.carousel-hider').carousel({countItem : 1, widthItem: 236, heightItem: 400, itemMarginRigth: 0});
-		}
-	}
-
-	if (widthWindow >= 960) {
-		if (!(widthWindow >= 960 && windowWidth >= 960)) {
-			windowWidth = 960;
-			$('.carousel-hider').carousel({countItem : 1, widthItem: 300, heightItem: 400, itemMarginRigth: 0});
-		}
-	}
-});
-
 })(jQuery);
 
 
-//Можно настраивать ширины li, margin-right li и число отображаемых li
-
-			// var widthItem = itemWidth + itemMarginRigth;
-			// widthCarousel = (options.countItem * (itemWidth + itemMarginRigth)) + 'px';
-			//  $img.css('maxWidth', itemWidth + 'px');
-			// $('.carousel-hider').css('width', widthCarousel);
-			// var elementsList = $('.carousel-list');
-			// var currentLeftValue = 0;
-			// currentLeftValue = currentLeftValue - widthItem;
-			// elementsList.animate({left: currentLeftValue + 'px'}, 0)

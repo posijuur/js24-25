@@ -38,6 +38,12 @@
     border-radius: 18px;
     font-family: 'Montserrat';
     word-spacing: 1px;
+    transition: .5s;
+  }
+  .block-registrate_sign:hover {
+    background-color: white;
+    border: 2px solid #FF4E50;
+    color: #FF4E50;
   }
   .block-registrate_log {
     width: 86px;
@@ -96,5 +102,11 @@
     font-family: 'Montserrat';
     font-size: 14px;
     font-weight: 700;
+    transition: .5s;
+  }
+
+  .btn-partner:hover {
+    background-color: white;
+    color: #ff4e50;
   }
 }

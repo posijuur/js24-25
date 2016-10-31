@@ -128,6 +128,7 @@
 			 var itemWidth = $('.carousel-element').width();
 			 // var itemHeight = $('.carousel-element').height();
 			 var itemMarginRigth = 0;
+			 var widthItem = itemWidth + itemMarginRigth;
 			 $(window).resize(function(){
 				var widthWindow = $(this).width();
 
@@ -135,7 +136,7 @@
 					if (!(widthWindow <= 767 && windowWidth <= 767)) {
 						windowWidth = 767;
 						itemWidth = $('.carousel-element').width();
-						var widthItem = itemWidth + itemMarginRigth;
+						widthItem = itemWidth + itemMarginRigth;
 						widthCarousel = (options.countItem * (itemWidth + itemMarginRigth)) + 'px';
 						 $img.css('maxWidth', itemWidth + 'px');
 						$('.carousel-hider').css('width', widthCarousel);
@@ -151,7 +152,7 @@
 					if (!(widthWindow >= 768 && widthWindow <=959 && windowWidth >= 768 && windowWidth <=959 )) {
 						windowWidth = 768;
 						itemWidth = $('.carousel-element').width();
-						var widthItem = itemWidth + itemMarginRigth;
+						widthItem = itemWidth + itemMarginRigth;
 						widthCarousel = (options.countItem * (itemWidth + itemMarginRigth)) + 'px';
 						 $img.css('maxWidth', itemWidth + 'px');
 						$('.carousel-hider').css('width', widthCarousel);
@@ -166,7 +167,7 @@
 					if (!(widthWindow >= 960 && windowWidth >= 960)) {
 						windowWidth = 960;
 						itemWidth = $('.carousel-element').width();
-						var widthItem = itemWidth + itemMarginRigth;
+						widthItem = itemWidth + itemMarginRigth;
 						widthCarousel = (options.countItem * (itemWidth + itemMarginRigth)) + 'px';
 						 $img.css('maxWidth', itemWidth + 'px');
 						$('.carousel-hider').css('width', widthCarousel);
@@ -177,7 +178,7 @@
 					}
 				}
 			});
-			 var widthItem = itemWidth + itemMarginRigth;
+			 
 			 // убрал с формулы -itemMarginRigth, так как item  у нас один
 			 widthCarousel = (options.countItem * (itemWidth + itemMarginRigth)) + 'px';
 			 $img.css('maxWidth', itemWidth + 'px');

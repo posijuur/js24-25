@@ -33,5 +33,8 @@
     "gulp-uncss": "^1.0.6",
     "gulp-useref": "^3.1.2",
     "wiredep": "^4.0.0"
+  },
+  "dependencies": {
+    "gulp-babel": "^6.1.2"
   }
 }

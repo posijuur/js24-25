@@ -1,4 +1,5 @@
 ;(function ($) {
+	'use strict';
 	var slider = {
 
 		makeItem : [
@@ -104,7 +105,7 @@
 				],
 			},
 		],
-	}
+	};
 
 	var $plaseHolder = $('.block-slide');
 	var $tpl_src = $('#carusel').text();
@@ -120,12 +121,12 @@
 
 	var methods = {
 		init: function (params) {
-			 var $item = $('.carousel-element');
+			 // var $item = $('.carousel-element');
 			 var $img = $('.carousel-element img');
 			 var options = $.extend({}, defaults, params);
 			 var widthCarousel = null;
 			 var itemWidth = $('.carousel-element').width();
-			 var itemHeight = $('.carousel-element').height();
+			 // var itemHeight = $('.carousel-element').height();
 			 var itemMarginRigth = 0;
 			 $(window).resize(function(){
 				var widthWindow = $(this).width();
@@ -141,9 +142,10 @@
 						var elementsList = $('.carousel-list');
 						var currentLeftValue = 0;
 						currentLeftValue = currentLeftValue - widthItem;
-						elementsList.animate({left: currentLeftValue + 'px'}, 0)
+						elementsList.animate({left: currentLeftValue + 'px'}, 0);
 					}
 				}
+
 
 				if (widthWindow >= 768 && widthWindow <=959) {
 					if (!(widthWindow >= 768 && widthWindow <=959 && windowWidth >= 768 && windowWidth <=959 )) {
@@ -156,7 +158,7 @@
 						var elementsList = $('.carousel-list');
 						var currentLeftValue = 0;
 						currentLeftValue = currentLeftValue - widthItem;
-						elementsList.animate({left: currentLeftValue + 'px'}, 0)
+						elementsList.animate({left: currentLeftValue + 'px'}, 0);
 					}
 				}
 
@@ -171,7 +173,7 @@
 						var elementsList = $('.carousel-list');
 						var currentLeftValue = 0;
 						currentLeftValue = currentLeftValue - widthItem;
-						elementsList.animate({left: currentLeftValue + 'px'}, 0)
+						elementsList.animate({left: currentLeftValue + 'px'}, 0);
 					}
 				}
 			});
@@ -179,47 +181,50 @@
 			 // убрал с формулы -itemMarginRigth, так как item  у нас один
 			 widthCarousel = (options.countItem * (itemWidth + itemMarginRigth)) + 'px';
 			 $img.css('maxWidth', itemWidth + 'px');
-			 // $item.css({
-			 // 	width: itemWidth + 'px',
-			 // 	height: options.heightItem + 'px',
-			 // 	marginRight: itemMarginRigth + 'px',
-			 // });
 			 this.css('width', widthCarousel);
 
 			 //Начало, Эта часть выполняется по дефолту сразу и не от чего не невисит
 			var leftUIEl = $('.carousel-arrow-left');
 			var rightUIEl = $('.carousel-arrow-right');
 			var elementsList = $('.carousel-list');
-			var ItemElement = $('.carousel-element');
 
 			var pixelsOffset = itemWidth + itemMarginRigth;
 			var currentLeftValue = 0;
 			// определяем количество слайдеров на странице
-			var elementsListLength = elementsList.length;
-			var elementsCount = (elementsList.find('.carousel-element').length)/elementsListLength;
-			var minimumOffset = - ((elementsCount - options.countItem) * pixelsOffset);
-			var maximumOffset = 0;
+			// var elementsListLength = elementsList.length;
+			// var elementsCount = (elementsList.find('.carousel-element').length)/elementsListLength;
+			// var minimumOffset = - ((elementsCount - options.countItem) * pixelsOffset);
+			// var maximumOffset = 0;
 
 			currentLeftValue = currentLeftValue - widthItem;
 
-			var ff = document.querySelectorAll('.carousel-list')
 			$.each(elementsList, function() {
 				$(this).find('.carousel-element:last').prependTo(this);
-			})
-			elementsList.animate({left: currentLeftValue + 'px'}, 0)
+			});
+			elementsList.animate({left: currentLeftValue + 'px'}, 0);
 
-			leftUIEl.click(function(event) {        
+			leftUIEl.click(function() {        
 				var findElementsList = $(this).parent().find('.carousel-list');
 				var findItemElements = $(this).parent().find('.carousel-element:last-child');
 			 	currentLeftValue += pixelsOffset;
 				$(findItemElements).prependTo(findElementsList);
+				console.log(widthItem);
+				console.log(-widthItem);
+				$(findElementsList).animate({left:0 + 'px'}, 0);
+				$(findElementsList).animate({left:-widthItem + 'px'}, 500);
 			});
 
-			rightUIEl.click(function(event) {   
+			rightUIEl.click(function() {   
 				var findElementsList = $(this).parent().find('.carousel-list');
 				var findItemElements = $(this).parent().find('.carousel-element:first-child');
 			 	currentLeftValue -= pixelsOffset;
 			 	$(findItemElements).appendTo(findElementsList); 
+			 	$(findElementsList).animate({left:((-widthItem)+(-widthItem)) + 'px'}, 0);
+				$(findElementsList).animate({left:-widthItem + 'px'}, 500);
+			 // 	$(findElementsList).animate({left:-widthItem + 'px'}, 0);
+				// $(findElementsList).animate({left:0 + 'px'}, 500);
+			 // 	$(':nth-child(2)'+findElementsList).animate({left:-widthItem + 'px'}, 0);
+				// $(':nth-child(2)'+findElementsList).animate({left:0 + 'px'}, 500);
 			});
 
 			//Конец!!!
@@ -244,18 +249,15 @@
 				$('.carousel-hider:nth-child(3)').find('.carousel-arrow-right').trigger('click');
 			}
 
-			// На ховер он находит все елементы внутри Ли, подумать как перейти к перенту
-			//Выбрать перентом сразу карусель-хайдер
-
 			var carouselHider = $('.carousel-hider');
 			for (var i = 0; i < carouselHider.length; i++) {
 				carouselHider[i].addEventListener("mouseover", highlightThis, true);
 			}
 
-			function highlightThis(event) {
-				var target = event.target;
-				var valueCount = this.dataset.count;
+			function highlightThis() {
 				var self = this;
+				var valueCount = $(self).data("count");
+
 				if (valueCount == 1) {
 					clearInterval(goSlider_1);
 
@@ -273,9 +275,6 @@
 						event.preventDefault();
 						goSlider_2 = setInterval(startShowSecondSlider, 3500);
 					});
-					// $('.carousel-hider:nth-child(2)').mouseout(function(event) {
-					// 	goSlider_2 = setInterval(startShowSecondSlider, 3500);
-					// });
 					return;
 				}
 
@@ -286,15 +285,12 @@
 						event.preventDefault();
 						goSlider_3 = setInterval(startShowThirdSlider, 3500);
 					});
-					// $('.carousel-hider:nth-child(3)').mouseout(function(event) {
-					// 	goSlider_3 = setInterval(startShowThirdSlider, 3500);
-					// });
 					return;
 				}
 			}
 	}
 
-	}
+	};
 
 	$.fn.carousel = function (method) {
 		if ( methods[method] ) {
@@ -302,10 +298,7 @@
 		} else if ( typeof method === 'object' || ! method ) {
         	return methods.init.apply( this, arguments );
     	} 
-
-
-
-}
+};
 
 var windowWidth = $(window).width();
 // отвечает за первое появление слаядера на странице
